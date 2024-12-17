@@ -24,6 +24,12 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Ejecutar el script
-        run: |
-          python app.py
+      - name: Ejecutar script
+        env:
+          USUARIO: ${{ secrets.USUARIO }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          DIRECCION_REMITENTE: ${{ secrets.DIRECCION_REMITENTE }}
+          PASS_REMITENTE: ${{ secrets.PASS_REMITENTE }}
+          DIRECCION_DESTINATARIO: ${{ secrets.DIRECCION_DESTINATARIO }}
+        run: python app.py
+
