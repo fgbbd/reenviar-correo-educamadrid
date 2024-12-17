@@ -7,9 +7,11 @@ from dotenv import load_dotenv
 from mail import send
 
 def get_content(driver, id):
+    # Encontrar elemento del correo
     xpath = f'//*[@id="{id}"]/td[2]/span[3]/a'
     element = driver.find_element(By.XPATH, xpath)
 
+    # Abrir el correo en una nueva pestaña
     link = element.get_attribute("href")
     driver.execute_script(f"window.open('{link}', '_blank');")
     driver.switch_to.window(driver.window_handles[-1])
@@ -33,6 +35,7 @@ def show(tr_elements, driver):
         get_content(driver, id)
 
 def scrape():
+    # Cargar variables de entorno (.envexample)
     load_dotenv()
     user = os.getenv("USUARIO")
     password = os.getenv("PASSWORD")
