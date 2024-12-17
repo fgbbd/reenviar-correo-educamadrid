@@ -35,7 +35,7 @@ def show(tr_elements, driver):
         get_content(driver, id)
 
 def scrape():
-    # Cargar variables de entorno (.envexample)
+    # Cargar variables de entorno
     load_dotenv()
     user = os.getenv("USUARIO")
     password = os.getenv("PASSWORD")
