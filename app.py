@@ -26,6 +26,7 @@ def get_content(driver, id):
 
     send(asunto, cuerpo)
 
+    # Cerrar pestaña
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
 
@@ -40,9 +41,11 @@ def scrape():
     user = os.getenv("USUARIO")
     password = os.getenv("PASSWORD")
 
+    # Cargar sin interfaz gráfica
     options = Options()
     options.add_argument("--headless")
 
+    # Iniciar chromedriver
     driver = webdriver.Chrome(options=options)
     driver.get("https://correoweb.educa.madrid.org")
 
