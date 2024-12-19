@@ -8,7 +8,8 @@ def message(asunto, cuerpo):
     token = os.getenv('TOKEN')
 
     # Asignar URL, Autorización y Contenido del mensaje
-    url = 'https://discord.com/api/v10/channels/1133821801051467827/messages'
+    id = 1133821801051467827 # Reemplza con la ID del canal MD
+    url = f'https://discord.com/api/v10/channels/{id}/messages'
     headers = {'Authorization': token}
     json = {'content': f'# Educamadrid: {asunto}\n{cuerpo}'}
 
