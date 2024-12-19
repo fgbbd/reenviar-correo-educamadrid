@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 import time,os, webbrowser
 from dotenv import load_dotenv
 from mail import send
+from discord import message
 
 def get_content(driver, id):
     # Encontrar elemento del correo
@@ -24,7 +25,11 @@ def get_content(driver, id):
     cuerpo_elemento = driver.find_element(By.XPATH, '//*[@id="message-htmlpart1"]/div')
     cuerpo = cuerpo_elemento.text
 
+    # Enviar correo a cuenta personal
     send(asunto, cuerpo)
+
+    # Enviar mensaje por Discord
+    message(asunto, cuerpo)
 
     # Cerrar pestaña
     driver.close()
@@ -68,11 +73,9 @@ def scrape():
     if tr_elements:
         show(tr_elements, driver)
     else:
-        print("No hay ningún mensaje nuevo.")
+        print('Ningún mensaje detectado.')
 
     driver.quit()
 
-
-
-
-scrape()
+if __name__ == "__main__":
+    scrape()

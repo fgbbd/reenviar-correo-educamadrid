@@ -31,5 +31,6 @@ jobs:
           DIRECCION_REMITENTE: ${{ secrets.DIRECCION_REMITENTE }}
           PASS_REMITENTE: ${{ secrets.PASS_REMITENTE }}
           DIRECCION_DESTINATARIO: ${{ secrets.DIRECCION_DESTINATARIO }}
+          TOKEN: ${{ secrets.TOKEN }}
         run: python app.py
 
