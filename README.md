@@ -22,7 +22,11 @@ Los correos se reenvían a Discord o a Gmail.
 - **`TOKEN`**: Token de la cuenta de Discord
 
 ## Desplegar aplicación
-Se puede usar Github actions con el archivo `schedule.yaml` en la carpeta `.github` para ejecutar el script 3 veces al día.
+1. Ejecuta `git clone https://github.com/fgbbd/reenviar-correo-educamadrid.git` en tu entorno local.
+2. Haz los cambios que quieras o deja el código como está y sube el código a GitHub.
+3. Ve a **`Settings` > `Secrets and variables` > `Actions`**.
+4. Añade todas las variables de entorno.
+5. Ve a **`Actions` > `Ejecutar Script Diario` > `Run workflow`** y prueba que funcione correctamente.
 
 
 [^1]: Cómo obtener tu token [aquí](https://gist.github.com/MarvNC/e601f3603df22f36ebd3102c501116c6#how-to-get-your-discord-token-from-the-browser-console)
