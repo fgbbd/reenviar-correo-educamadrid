@@ -25,13 +25,13 @@ def get_content(driver, tr_elements):
 
         # Cuerpo
         cuerpo_elemento = driver.find_element(By.XPATH, '//*[@id="message-htmlpart1"]/div')
-        cuerpo = cuerpo_elemento.text
+        cuerpo = cuerpo_elemento.get_attribute('outerHTML')
 
         # Enviar correo a cuenta personal
-        send(asunto, cuerpo)
+        send(asunto, cuerpo, link)
 
         # Enviar mensaje por Discord
-        message(asunto, cuerpo)
+        message(asunto, cuerpo_elemento.text, link)
 
         # Cerrar pestaña
         driver.close()
