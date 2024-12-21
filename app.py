@@ -36,7 +36,7 @@ def get_content(driver, tr_elements):
         driver.close()
         driver.switch_to.window(driver.window_handles[0])
 
-def scrape():
+def main():
     # Cargar variables de entorno
     load_dotenv()
     user = os.getenv("USUARIO")
@@ -74,4 +74,4 @@ def scrape():
     driver.quit()
 
 if __name__ == "__main__":
-    scrape()
+    main()
