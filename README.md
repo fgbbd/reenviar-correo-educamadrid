@@ -1,6 +1,6 @@
 # Reenvío de correos de educamadrid
-Programa de Python para reenviar correos no leídos del [Correo de EducaMadrid](https://correoweb.educa.madrid.org/)
-Los correos se reenvían a Discord o a Gmail.
+Programa de Python para reenviar correos no leídos del [Correo de EducaMadrid](https://correoweb.educa.madrid.org/). 
+Los correos se reenvían a Discord y/o a Gmail.
 
 #### Discord
 - Puedes prescindir de las variables de entorno `DIRECCION_REMITENTE`, `PASS_REMITENTE` y `DIRECCION_DESTINATARIO`. Necesitarás la variable `TOKEN`. 
