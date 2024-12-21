@@ -20,6 +20,7 @@ def send(asunto, cuerpo_html, link):
     </body>
     </html>
     """
+    
     # Crear mensaje
     mensaje = MIMEMultipart()
     mensaje["From"] = remitente
