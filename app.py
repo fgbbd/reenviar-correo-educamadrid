@@ -9,7 +9,6 @@ from discord import message
 
 def get_content(driver, tr_elements):
     for tr in tr_elements:
-        
         # Encontrar elemento del correo
         id = tr.get_attribute('id')
         element = driver.find_element(By.XPATH, f'//*[@id="{id}"]/td[2]/span[3]/a')
