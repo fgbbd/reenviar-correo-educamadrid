@@ -9,10 +9,10 @@ from discord import message
 
 def get_content(driver, tr_elements):
     for tr in tr_elements:
-        id = tr.get_attribute('id')
+        
         # Encontrar elemento del correo
-        xpath = f'//*[@id="{id}"]/td[2]/span[3]/a'
-        element = driver.find_element(By.XPATH, xpath)
+        id = tr.get_attribute('id')
+        element = driver.find_element(By.XPATH, f'//*[@id="{id}"]/td[2]/span[3]/a')
 
         # Abrir el correo en una nueva pestaña
         link = element.get_attribute("href")
