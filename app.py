@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import time,os, webbrowser
-from dotenv import load_dotenv
 from mail import send
 from discord import message
 
@@ -38,7 +37,6 @@ def get_content(driver, tr_elements):
 
 def main():
     # Cargar variables de entorno
-    load_dotenv()
     user = os.getenv("USUARIO")
     password = os.getenv("PASSWORD")
 
@@ -75,3 +73,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    

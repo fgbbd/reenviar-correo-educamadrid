@@ -1,7 +1,4 @@
-import requests, os, logging
-from dotenv import load_dotenv
-
-load_dotenv()
+import requests, os
 
 def message(asunto, cuerpo, link):
     # Obtener variable de entorno
