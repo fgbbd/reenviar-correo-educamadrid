@@ -7,7 +7,7 @@ def message(asunto, cuerpo, link):
     # Asignar URL, Autorización y Contenido del mensaje
     id = 1133821801051467827 # Reemplaza con la ID del canal MD
     url = f'https://discord.com/api/v10/channels/{id}/messages'
-    headers = {'Authorization': token}
+    headers = {'Authorization': f'Bot {token}'}
     json = {'content': f'# [{asunto}](<{link}>)\n{cuerpo}'}
 
     # Realizar solicitud
