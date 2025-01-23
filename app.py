@@ -10,8 +10,8 @@ from selenium.webdriver.chrome.options import Options
 from mail import send
 from discord import message
 
-def get_content(driver, tr_elements):
-    for tr in tr_elements:
+def get_content(driver, mails):
+    for mail in mails:
         # Encontrar elemento del correo
         id = tr.get_attribute('id')
         element = driver.find_element(By.XPATH, f'//*[@id="{id}"]/td[2]/span[3]/a')
@@ -66,10 +66,10 @@ def main():
 
     time.sleep(4)
     # Buscar mensajes no leídos
-    tr_elements = driver.find_elements(By.CSS_SELECTOR, 'tr.unread')
+    mails = driver.find_elements(By.CSS_SELECTOR, 'tr.unread')
 
-    if tr_elements:
-        get_content(driver, tr_elements)
+    if mails:
+        get_content(driver, mails)
     else:
         print('Ningún mensaje detectado.')
 
