@@ -1,4 +1,5 @@
-import requests, os
+import requests
+import os
 
 def message(asunto, cuerpo, link):
     # Obtener variable de entorno
