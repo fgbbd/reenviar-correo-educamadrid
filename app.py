@@ -11,9 +11,10 @@ from discord import message
 def get_content(driver, mails):
     for mail in mails:
         # Encontrar elemento del correo
-        id = tr.get_attribute('id')
+        id = mail.get_attribute('id')
         element = driver.find_element(By.XPATH, f'//*[@id="{id}"]/td[2]/span[3]/a')
 
+        try:
             # Abrir el correo en una nueva pestaña
             link = element.get_attribute("href")
             driver.execute_script(f"window.open('{link}', '_blank');")

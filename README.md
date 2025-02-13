@@ -32,4 +32,3 @@ Los correos se reenvían a Discord y/o a Gmail.
 [^1]: Cómo obtener tu token [aquí](https://gist.github.com/MarvNC/e601f3603df22f36ebd3102c501116c6#how-to-get-your-discord-token-from-the-browser-console)
 
 [^2]: Para crear una contraseña de aplicación debes [activar la autentificación en dos factores](https://support.google.com/accounts/answer/185839?hl=es) e ir a [Crear contraseñas de apliación](https://myaccount.google.com/apppasswords)  en tu cuenta de Google. Más información [aquí](https://support.google.com/accounts/answer/185833?hl=es#Create%20&%20use%20app%20passwords).
-
