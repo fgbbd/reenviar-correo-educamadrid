@@ -8,40 +8,6 @@ from selenium.webdriver.chrome.options import Options
 from mail import send
 from discord import message
 
-def get_content(driver, mails):
-    for mail in mails:
-        # Encontrar elemento del correo
-        id = mail.get_attribute('id')
-        element = driver.find_element(By.XPATH, f'//*[@id="{id}"]/td[2]/span[3]/a')
-
-        try:
-            # Abrir el correo en una nueva pestaña
-            link = element.get_attribute("href")
-            driver.execute_script(f"window.open('{link}', '_blank');")
-            driver.switch_to.window(driver.window_handles[-1])
-
-            # Asunto
-            asunto_elemento = driver.find_element(By.XPATH, '//*[@id="message-header"]/h2')
-            asunto = asunto_elemento.text
-
-            # Cuerpo
-            cuerpo_elemento = driver.find_element(By.XPATH, '//*[@id="message-htmlpart1"]/div')
-            cuerpo = cuerpo_elemento.get_attribute('outerHTML')
-
-            # Enviar correo a cuenta personal
-            send(asunto, cuerpo, link)
-
-            # Enviar mensaje por Discord
-            message(asunto, cuerpo_elemento.text, link)
-
-        except Exception as e:
-            print(f"Error al obtener el contenido del correo: {e}")
-
-        finally:
-            # Cerrar pestaña
-            driver.close()
-            driver.switch_to.window(driver.window_handles[0])
-
 def main():
     # Cargar variables de entorno
     user = os.getenv("USUARIO")
@@ -77,6 +43,40 @@ def main():
         print('Ningún mensaje detectado.')
 
     driver.quit()
+
+def get_content(driver, mails):
+    for mail in mails:
+        # Encontrar elemento del correo
+        id = mail.get_attribute('id')
+        element = driver.find_element(By.XPATH, f'//*[@id="{id}"]/td[2]/span[3]/a')
+
+        try:
+            # Abrir el correo en una nueva pestaña
+            link = element.get_attribute("href")
+            driver.execute_script(f"window.open('{link}', '_blank');")
+            driver.switch_to.window(driver.window_handles[-1])
+
+            # Asunto
+            asunto_elemento = driver.find_element(By.XPATH, '//*[@id="message-header"]/h2')
+            asunto = asunto_elemento.text
+
+            # Cuerpo
+            cuerpo_elemento = driver.find_element(By.XPATH, '//*[@id="message-htmlpart1"]/div')
+            cuerpo = cuerpo_elemento.get_attribute('outerHTML')
+
+            # Enviar correo a cuenta personal
+            send(asunto, cuerpo, link)
+
+            # Enviar mensaje por Discord
+            message(asunto, cuerpo_elemento.text, link)
+
+        except Exception as e:
+            print(f"Error al obtener el contenido del correo: {e}")
+
+        finally:
+            # Cerrar pestaña
+            driver.close()
+            driver.switch_to.window(driver.window_handles[0])
 
 if __name__ == "__main__":
     main()

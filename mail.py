@@ -38,7 +38,9 @@ def send(asunto, cuerpo_html, link):
         servidor.sendmail(remitente, destinatario, mensaje.as_string())
 
         print('Se ha enviado el mensaje por correo correctamente.')
+        
     except Exception as e:
         print(f"Error al enviar el correo: {e}")
+
     finally:
         servidor.quit()
