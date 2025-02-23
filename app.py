@@ -21,6 +21,8 @@ def main():
     driver = webdriver.Chrome(options=options)
     driver.get("https://correoweb.educa.madrid.org")
 
+    time.sleep(5)
+    
     # Introducir usuario
     user_element = driver.find_element(By.ID, "rcmloginuser")
     user_element.send_keys(user)
