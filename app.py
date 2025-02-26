@@ -4,6 +4,8 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from mail import send
 from discord import message
@@ -23,16 +25,19 @@ def main():
 
     time.sleep(5)
     
+    # Definir pausa hasta que los elementos existan
+    wait = WebDriverWait(driver, 10) 
+
     # Introducir usuario
-    user_element = driver.find_element(By.ID, "rcmloginuser")
+    user_element = wait.until(EC.presence_of_element_located((By.ID, "rcmloginuser")))
     user_element.send_keys(user)
 
     # Introducir contraseña
-    password_element = driver.find_element(By.ID, "rcmloginpwd")
+    password_element = wait.until(EC.presence_of_element_located((By.ID, "rcmloginpwd")))
     password_element.send_keys(password)
 
     # Iniciar sesión
-    boton = driver.find_element(By.ID, "rcmloginsubmit")
+    boton = wait.until(EC.element_to_be_clickable((By.ID, "rcmloginsubmit")))
     boton.click()
 
     time.sleep(4)
