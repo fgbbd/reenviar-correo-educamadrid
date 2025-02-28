@@ -23,7 +23,7 @@ def main():
     driver = webdriver.Chrome(options=options)
     driver.get("https://correoweb.educa.madrid.org")
 
-    time.sleep(5)
+    time.sleep(30)
     
     # Definir pausa hasta que los elementos existan
     wait = WebDriverWait(driver, 10) 
