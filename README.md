@@ -1,21 +1,22 @@
-# ARCHIVADO POR POSIBLIDAD DE CONECTARSE POR SERVIDOR SMTP e IMAP
+# Reenvío de correos de educamadrid
+Programa de Python para reenviar correos no leídos del [Correo de EducaMadrid](https://correoweb.educa.madrid.org/).
+Los correos se reenvían a Discord y/o a un correo electrónico.
 
-## Reenvío de correos de educamadrid
-Programa de Python para reenviar correos no leídos del [Correo de EducaMadrid](https://correoweb.educa.madrid.org/). 
-Los correos se reenvían a Discord y/o a Gmail.
+> [!IMPORTANT]
+> Se puede conectar el correo de EducaMadrid a un correo personal por medio de IMAP y SMTP. Sin embargo, no funciona con Proton.
 
 #### Discord
-- Puedes prescindir de las variables de entorno `DIRECCION_REMITENTE`, `PASS_REMITENTE` y `DIRECCION_DESTINATARIO`. Necesitarás la variable `TOKEN`. 
+- Puedes prescindir de las variables de entorno `DIRECCION_REMITENTE`, `PASS_REMITENTE` y `DIRECCION_DESTINATARIO`. Necesitarás la variable `TOKEN`.
 - Necesitarás una cuenta de Discord aparte de la que recibirá los correos. Necesitarás el token de tu cuenta [^1]
 - Ve a **`Ajustes de usuario > Avanzado > Modo desarrollador`**. Después ve al canal MD entre ambas cuentas, haz click derecho en él y haz click en `Copiar ID del Canal`.
 
 #### Gmail
-- Necesitarás las variables de entorno `DIRECCION_REMITENTE`, `PASS_REMITENTE` y `DIRECCION_DESTINATARIO`. No necesitarás la variable `TOKEN`. 
+- Necesitarás las variables de entorno `DIRECCION_REMITENTE`, `PASS_REMITENTE` y `DIRECCION_DESTINATARIO`. No necesitarás la variable `TOKEN`.
 
 
 ## Variables de entorno
 > Las variables de entorno deben ponerse en un archivo .env
-- **`USUARIO`**: 
+- **`USUARIO`**:
   Usuario de educamadrid sin @educa.madrid.org
 - **`PASSWORD`**: Contraseña de educamadrid
 - **`DIRECCION_REMITENTE`**: Dirección de Gmail del correo con el que se va a a enviar a tu direccióon principal

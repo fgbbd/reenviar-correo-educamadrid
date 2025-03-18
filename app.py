@@ -22,9 +22,9 @@ def main():
     # Iniciar chromedriver
     driver = webdriver.Chrome(options=options)
     driver.get("https://correoweb.educa.madrid.org")
-    
+
     # Definir pausa hasta que los elementos existan
-    wait = WebDriverWait(driver, 10) 
+    wait = WebDriverWait(driver, 20)
 
     # Introducir usuario
     user_element = wait.until(EC.presence_of_element_located((By.ID, "rcmloginuser")))
