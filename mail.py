@@ -19,7 +19,7 @@ def send(asunto, cuerpo_html, link):
     </body>
     </html>
     """
-    
+
     # Crear mensaje
     mensaje = MIMEMultipart()
     mensaje["From"] = remitente
@@ -30,7 +30,7 @@ def send(asunto, cuerpo_html, link):
     try:
         # Establecer conexión con el servidor
         servidor = smtplib.SMTP("smtp.gmail.com", 587)
-        servidor.ehlo() 
+        servidor.ehlo()
         servidor.starttls()
 
         # Inciar sesión y enviar correo
@@ -38,7 +38,7 @@ def send(asunto, cuerpo_html, link):
         servidor.sendmail(remitente, destinatario, mensaje.as_string())
 
         print('Se ha enviado el mensaje por correo correctamente.')
-        
+
     except Exception as e:
         print(f"Error al enviar el correo: {e}")
 

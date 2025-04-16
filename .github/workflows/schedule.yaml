@@ -2,10 +2,10 @@ name: Ejecutar Script Diario
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # 7:00 hora Madrid (invierno)
-    - cron: '0 13 * * *'  # 14:00 hora Madrid (invierno)
-    - cron: '0 19 * * *'  # 20:00 hora Madrid (invierno)
-  workflow_dispatch:     
+    - cron: '0 5 * * *'   # 7:00 hora Madrid (verano)
+    - cron: '0 12 * * *'  # 14:00 hora Madrid (verano)
+    - cron: '0 18 * * *'  # 20:00 hora Madrid (verano)
+  workflow_dispatch:
 
 jobs:
   ejecutar-script:
@@ -18,7 +18,7 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'  
+          python-version: '3.11'
 
       - name: Instalar dependencias
         run: |
