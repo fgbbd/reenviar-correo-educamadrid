@@ -25,7 +25,7 @@ def main():
 
     # Definir pausa hasta que los elementos existan
     wait = WebDriverWait(driver, 20)
-    driver.save_screenshot('screenshot.png')
+    
     # Introducir usuario
     user_element = wait.until(EC.presence_of_element_located((By.ID, "rcmloginuser")))
     user_element.send_keys(user)
